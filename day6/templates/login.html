@@ -1,0 +1,31 @@
+{%  extends 'base.html' %}
+
+{% block head %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/base.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/login.css' %}" />
+{% endblock %}
+
+{%  block body %}
+<div class='login'>
+				<div class='he' ><p>欢迎你</p></div>
+
+					<form action='' method="post" enctype="multipart/form-data">
+					<div class='form1'>
+						<span class='na'></span>
+                        <input class='inpu1'name='name' type='text' placeholder='请输入账号'/>
+					</div>
+					<div class='form1'>
+						<span class='pw'>
+                        </span><input  class='inpu1'name="pw" type='password' placeholder='请输入密码'/>
+					</div>
+                    <div class='login1'>
+                        <a href="{%  url 'user:register' %}">没有账号去注册</a>
+                    </div>
+					<input class='bu1' value='登陆' type='submit'/>
+					</form>
+	 <div class="form1" style="color:red">
+         {{error.name}},{{error.pw}},{{error.pw1}}
+     </div>
+</div>
+{%  endblock %}

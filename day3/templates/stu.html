@@ -1,0 +1,50 @@
+{% extends 'base_main.html' %}
+
+{% block css %}
+    {% load static %}
+    <link rel="stylesheet" href="{%  static 'css/stu.css' %}"/>
+{% endblock %}
+
+
+{% block content %}
+{{ cont | safe }}
+    <table>
+    <thead>
+    <th>序号</th>
+    <th>id</th>
+    <th>姓名</th>
+    <th>年龄</th>
+    <th>创建时间</th>
+    <th>操作</th>
+    </thead>
+    <tbody>
+    {%  for stu in stus %}
+        <tr>
+                <!--forloop.counter0 从0打印-->
+                <!--forloop.recounter0 倒序到0打印-->
+                <!--forloop.recounter 倒序到1打印-->
+                <!--forloop.counter 从1打印-->
+
+          <td>{{ forloop.counter}}</td>{#forloop.last 循环第一次True  forloop.first:循环最后一次True  #}
+           <td>{{ stu.id }}</td>
+           <td>
+               {# {%  if forloop.counter == 1 %}--{% else %}---{% endif %} if方法  #}
+                   {% ifequal forloop.counter 1 %}
+
+                            <b style="color:red">{{ stu.s_name }}</b>
+                   {% else %}
+                   <b style="color:green">{{ stu.s_name }}</b>
+               {% endifequal %}
+
+           </td>
+            <td>{{ stu.s_age | add:1}}</td>{#  加一 #}
+            <td>{{ stu.create_time | date:'Y年m月s日 '}}</td>{# 使用过滤 #}
+            <td><a href="/app/edit_stu/{{ stu.id }}">编辑</a> </td>{#  '{% url "dy:edit" stu.id' %} #}
+        </tr>
+    {% endfor %}
+    </tbody>
+    </table>
+
+{% endblock %}
+
+

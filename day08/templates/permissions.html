@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{{ user }}
+{% for permission in user.groups.all.0.permissions.all %}
+    {{ permission.codename }}
+{% endfor %}
+<br/>
+{% for per in user.user_permissions.all %}
+ {{ per.codename }}
+{% endfor %}
+</body>
+</html>

@@ -1,0 +1,13 @@
+.login1{
+    height: 30px;
+}
+.login1 a{
+    position: absolute;
+    right: 25px;
+    color:red;
+     margin-bottom: 10px;
+
+}
+    body{
+			background: url(/static/img/demo-1-bg.jpg);
+            }

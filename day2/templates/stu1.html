@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table{
+            width:500px;
+            text-align:center;
+            margin-top: 100px;
+        }
+        table thead{
+            background: antiquewhite;
+        }
+        table tbody{
+            background:palegreen;
+        }
+    </style>
+</head>
+<body>
+
+     <table border="1px" bordercolor="black" cellspacing=0  align="center">
+     <thead>
+     <th>姓名</th>
+     <th>年龄</th>
+     <th>操作</th>
+     </thead>
+     <tbody>
+     {% for stu in student %}
+         <tr>
+             <td>{{ stu.s_name }}</td>
+             <td>{{ stu.s_age }}</td>
+             <td>
+                 <a href="/add_info/?stu_id={{ stu.id }}">添加扩展信息</a>
+             </td>
+            <td>
+                 <a href="/add_stu_course/?stu_id={{ stu.id }}">添加课程信息</a>
+             </td>
+         </tr>
+     {% endfor %}
+     </tbody>
+     </table>
+
+
+
+</body>
+</html>

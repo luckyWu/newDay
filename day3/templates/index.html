@@ -1,0 +1,30 @@
+{% extends 'base_main.html' %}
+{% block title %}
+    头部
+{% endblock %}
+
+
+  {%  block css %}
+      <!--加载静态文件css的两种方式-->
+     <!-- <link href="/static/css/index.css" rel="stylesheet" type="text/css"/>-->
+
+      {% load static %}
+      <link rel="stylesheet" href="{% static 'css/login.css' %}"/>
+
+  {% endblock %}
+
+{% block content %}
+    <p>this is 身体</p>
+{%  endblock  %}
+
+{% block js %}
+    <!--引入父模板的block js 中定义的内容-->
+    {# 注解 #}
+    {%  comment %}
+    第一行注释；
+    第二行注释；
+    第三行注释；
+    {%  endcomment %}
+{#   {{ block.super }} #}
+    22222
+{%  endblock %}

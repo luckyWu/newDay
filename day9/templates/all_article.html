@@ -1,0 +1,85 @@
+{%  extends 'base.html' %}
+
+
+
+
+{% block head %}
+{% load static %}
+<script src="{% static 'js/jquery.js' %}"></script>
+<script type="text/javascript">
+
+    $.ajax({
+    url:'/user/article',
+    type:'GET',
+    dataType:'JSON',
+    success:function(data)
+    {
+     console.log(data);
+     var table_html = '<table><thead><th>id</th>'
+     table_html += '<th>title</th><th>操作</th></thead><tbody>';
+
+     for(var i=0; i<data.length; i++)
+        {
+        table_html += '<tr><td>'+data[i].id+'</td>' + '<td>'+data[i].title +'</td>'+'<td><a onclick="add_article()">\
+        编辑</a></td><td><a onclick="delete_article('+data[i].id+')">删除</a></td></tr>';
+        }
+       table_html += '</tbody></table>';
+       $('.art').html(table_html)
+
+      },
+        error:function(data){
+        console.log(data);
+        }
+    })
+
+    function delete_article(id){
+    $.ajax({
+    url:'/user/article/'+id+'/',
+    type:'DELETE',
+    dataType:'JSON',
+    success:function(data){alert('删除成功')},
+    error:function(data){alert('删除错误')},
+    })
+    }
+
+
+
+
+ function add_article(){
+
+    var form_html = '<form action=" ">标题:<input type="text" name="title" />\
+        描述:<input type="text" name="desc" /> <input type="button" value="提交" onclick="add()"/></form>'
+        alert(form_html)
+        $('#add').html(form_html);
+    }
+
+    add_article();
+    function add(){
+        var title = $("input[name='title']").val();
+        var desc = $("input[name='desc']").val();
+        var csrf = $('input[name="csrfmiddlewaretoken"]').val();
+         $.ajax({
+        url:'/user/article/',
+        //headers:{'X_CSRFToken':csrf},
+        type:'POST',
+        dataType:'JSON',
+        data:{'title':title ,'desc':desc},
+        success:function(data){alert('创建成功')},
+        error:function(data){alert('创建错误')},
+        })
+    }
+
+
+
+</script>
+{% endblock %}
+
+
+
+
+ {%  block body %}
+
+
+<div class="art"></div>
+<div id="add"></div>
+{%  endblock %}

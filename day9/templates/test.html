@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+
+</head>
+<body>
+<div id="add"></div>
+ <script type="text/javascript">
+    function add_article(){
+
+    var form_html = '<form action=" ">标题:<input type="text" name="title" />\
+        描述:<input type="text" name="desc" /> <input type="button" value="提交" onclick="add()"/></form>'
+        alert(form_html)
+        $('#add').html(form_html);
+    }
+
+    add_article();
+ </script>
+</body>
+</html>

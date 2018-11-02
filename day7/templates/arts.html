@@ -1,0 +1,18 @@
+{%  extends 'base.html' %}
+
+{%  block body %}
+{% for article in article %}
+ 标题:{{ article.title}}
+     描述:{{ article.desc}}
+     <div style='float:left' >  图片:<img style='width:300px;height:300px' src="/media/{{article.img}}"/></div>
+
+{% endfor %}
+<p>
+    {% if article.has_previous %}
+    <a href="{% url 'user:article'?page={{article.previous_page_number}}">上一页:</a>
+    {% endif %}
+    {% for i in article.paginator.page_range %}
+    <a href="{% url 'user:articles' %}?page={{i}}">{{i}}</a>
+    {% endfor %}
+</p>
+{%  endblock %}

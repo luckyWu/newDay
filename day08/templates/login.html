@@ -1,0 +1,19 @@
+
+{% extends 'base.html' %}
+
+{% block body%}
+
+
+<form action='' method="post">
+	{% csrf_token %}
+					<div class='form1'>
+						<span class='na'></span>
+                        <input class='inpu1'name='name' type='text' placeholder='请输入账号'/>
+					</div>
+					<div class='form1'>
+						<span class='pw'>
+                        </span><input  class='inpu1'name="pw" type='password' placeholder='请输入密码'/>
+					</div>
+					<input class='bu1' value='登陆' type='submit'/>
+					</form>
+{% endblock %}

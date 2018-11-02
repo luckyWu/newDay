@@ -1,0 +1,44 @@
+{%  extends 'base.html' %}
+
+{% block head %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/base.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/regiester.css' %}" />
+
+{% endblock %}
+
+
+{%  block body %}
+
+
+
+<div class="register">
+	<div class='he'>
+        <p>欢迎注册</p>
+    </div>
+<form action="" method="POST">
+
+    <div class="form1">
+        <span class='na'></span>
+        <input class='inpu1' type="text" name="name" placeholder="用户名"/>
+    </div>
+
+    <div class="form1">
+        <span class='pw'>
+        </span><input class='inpu1' type='password' name="pw" placeholder="密码" />
+    </div>
+
+    <div class="form1">
+        <span class='pw'>
+        </span><input class='inpu1' type='password' name="pw1" placeholder="确认密码"/>
+    </div>
+
+    <input class='bu1' type="submit" value="注册"/>
+    <div class="form1">
+         {{error.name}},{{error.pw}},{{error.pw1}}
+     </div>
+</form>
+
+</div>
+
+{%  endblock %}

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>
+        {% block title %}
+        {% endblock %}
+    </title>
+
+    {% block jquery %}
+       {#   <script src="js/jquery.js" ></script> #}
+    {% endblock %}
+
+    {%  block css %}
+    {% endblock %}
+
+</head>
+<body>
+    {% block content %}
+    {% endblock %}
+
+    {% block js %}
+
+
+    {% endblock %}
+</body>
+</html>
