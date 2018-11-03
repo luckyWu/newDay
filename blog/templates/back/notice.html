@@ -6,17 +6,18 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>公告 - 异清轩博客管理系统</title>
-<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="css/style.css">
-<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
-<link rel="apple-touch-icon-precomposed" href="images/icon/icon.png">
-<link rel="shortcut icon" href="images/icon/favicon.ico">
-<script src="js/jquery-2.1.4.min.js"></script>
+  {% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/back/bootstrap.min.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/back/style.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/back/font-awesome.min.css' %}">
+<link rel="apple-touch-icon-precomposed" href="{% static 'images/back/icon/icon.png' %}">
+<link rel="shortcut icon" href="{% static 'images/back/icon/favicon.ico">
+<script src="{% static 'js/back/jquery-2.1.4.min.js' %}"></script>
 <!--[if gte IE 9]>
-  <script src="js/jquery-1.11.1.min.js" type="text/javascript"></script>
-  <script src="js/html5shiv.min.js" type="text/javascript"></script>
-  <script src="js/respond.min.js" type="text/javascript"></script>
-  <script src="js/selectivizr-min.js" type="text/javascript"></script>
+  <script src="{% static 'js/back/jquery-1.11.1.min.js' %}" type="text/javascript"></script>
+  <script src="{% static 'js/back/html5shiv.min.js' %}" type="text/javascript"></script>
+  <script src="{% static 'js/back/respond.min.js' %}" type="text/javascript"></script>
+  <script src="{% static 'js/back/selectivizr-min.js' %}" type="text/javascript"></script>
 <![endif]-->
 <!--[if lt IE 9]>
   <script>window.location.href='upgrade-browser.html';</script>
@@ -33,14 +34,14 @@
           <a class="navbar-brand" href="/">YlsatCMS</a> </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="">消息 <span class="badge">1</span></a></li>
+            <li><a href="{% url 'blog:">消息 <span class="badge">1</span></a></li>
             <li class="dropdown"> <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">admin <span class="caret"></span></a>
               <ul class="dropdown-menu dropdown-menu-left">
                 <li><a title="查看或修改个人信息" data-toggle="modal" data-target="#seeUserInfo">个人信息</a></li>
                 <li><a title="查看您的登录记录" data-toggle="modal" data-target="#seeUserLoginlog">登录记录</a></li>
               </ul>
             </li>
-            <li><a href="login.html" onClick="if(!confirm('是否确认退出？'))return false;">退出登录</a></li>
+            <li><a href="{% url 'blog:login.html" onClick="if(!confirm('是否确认退出？'))return false;">退出登录</a></li>
             <li><a data-toggle="modal" data-target="#WeChat">帮助</a></li>
           </ul>
           <form action="" method="post" class="navbar-form navbar-right" role="search">
@@ -57,38 +58,38 @@
   <div class="row">
     <aside class="col-sm-3 col-md-2 col-lg-2 sidebar">
       <ul class="nav nav-sidebar">
-        <li><a href="index.html">报告</a></li>
+        <li><a href="{% url 'blog:index.html">报告</a></li>
       </ul>
       <ul class="nav nav-sidebar">
-        <li><a href="article.html">文章</a></li>
-        <li class="active"><a href="notice.html">公告</a></li>
-        <li><a href="comment.html">评论</a></li>
+        <li><a href="{% url 'blog:back_article' %}">文章</a></li>
+        <li class="active"><a href="{% url 'blog:back_notice' %}">公告</a></li>
+        <li><a href="{% url 'blog:back_comment' %}">评论</a></li>
         <li><a data-toggle="tooltip" data-placement="top" title="网站暂无留言功能">留言</a></li>
       </ul>
       <ul class="nav nav-sidebar">
-        <li><a href="category.html">栏目</a></li>
+        <li><a href="{% url 'blog:back_category">栏目</a></li>
         <li><a class="dropdown-toggle" id="otherMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">其他</a>
           <ul class="dropdown-menu" aria-labelledby="otherMenu">
-            <li><a href="flink.html">友情链接</a></li>
-            <li><a href="loginlog.html">访问记录</a></li>
+            <li><a href="{% url 'blog:flink.html">友情链接</a></li>
+            <li><a href="{% url 'blog:loginlog.html">访问记录</a></li>
           </ul>
         </li>
       </ul>
       <ul class="nav nav-sidebar">
         <li><a class="dropdown-toggle" id="userMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">用户</a>
           <ul class="dropdown-menu" aria-labelledby="userMenu">
-            <li><a href="#">管理用户组</a></li>
-            <li><a href="manage-user.html">管理用户</a></li>
+            <li><a href="{% url 'blog:#">管理用户组</a></li>
+            <li><a href="{% url 'blog:manage-user.html">管理用户</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="loginlog.html">管理登录日志</a></li>
+            <li><a href="{% url 'blog:loginlog.html">管理登录日志</a></li>
           </ul>
         </li>
         <li><a class="dropdown-toggle" id="settingMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">设置</a>
           <ul class="dropdown-menu" aria-labelledby="settingMenu">
-            <li><a href="setting.html">基本设置</a></li>
-            <li><a href="readset.html">用户设置</a></li>
+            <li><a href="{% url 'blog:setting.html">基本设置</a></li>
+            <li><a href="{% url 'blog:readset.html">用户设置</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="#">安全配置</a></li>
+            <li><a href="{% url 'blog:#">安全配置</a></li>
             <li role="separator" class="divider"></li>
             <li class="disabled"><a>扩展菜单</a></li>
           </ul>
@@ -99,7 +100,7 @@
       <form action="/Article/checkAll" method="post" >
         <h1 class="page-header">操作</h1>
         <ol class="breadcrumb">
-          <li><a href="add-notice.html">增加公告</a></li>
+          <li><a href="{% url 'blog:add_notice' %}">增加公告</a></li>
         </ol>
         <h1 class="page-header">管理 <span class="badge">3</span></h1>
         <div class="table-responsive">
@@ -117,19 +118,19 @@
                 <td><input type="checkbox" class="input-control" name="checkbox[]" value="" /></td>
                 <td class="article-title">这是测试的公告标题这是测试的公告标题这是测试的公告标题这是测试的公告标题</td>
                 <td>2015-12-03</td>
-                <td><a href="">修改</a> <a rel="6">删除</a></td>
+                <td><a href="{% url 'blog:">修改</a> <a rel="6">删除</a></td>
               </tr>
               <tr>
                 <td><input type="checkbox" class="input-control" name="checkbox[]" value="" /></td>
                 <td class="article-title">这是测试的公告标题这是测试的公告标题这是测试的公告标题这是测试的公告标题</td>
                 <td>2015-12-03</td>
-                <td><a href="">修改</a> <a rel="6">删除</a></td>
+                <td><a href="{% url 'blog:">修改</a> <a rel="6">删除</a></td>
               </tr>
               <tr>
                 <td><input type="checkbox" class="input-control" name="checkbox[]" value="" /></td>
                 <td class="article-title">这是测试的公告标题这是测试的公告标题这是测试的公告标题这是测试的公告标题</td>
                 <td>2015-12-03</td>
-                <td><a href="">修改</a> <a rel="6">删除</a></td>
+                <td><a href="{% url 'blog:">修改</a> <a rel="6">删除</a></td>
               </tr>
             </tbody>
           </table>
@@ -292,8 +293,8 @@
     <li class="list-group-item"><span>浏览器：</span>Chrome47</li>
   </ul>
 </div>
-<script src="js/bootstrap.min.js"></script> 
-<script src="js/admin-scripts.js"></script> 
+<script src="{% static 'js/back/bootstrap.min.js' %}"></script> 
+<script src="{% static 'js/back/admin-scripts.js' %}"></script> 
 <script>
 //是否确认删除
 $(function(){   
